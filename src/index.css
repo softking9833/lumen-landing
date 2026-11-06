@@ -226,7 +226,7 @@ button {
   min-height: 2.7rem;
   padding: 0.65rem 1.15rem;
   border: 1px solid transparent;
-  border-radius: 0.45rem;
+  border-radius: 2px;
   font-family: var(--font-body);
   font-size: 0.92rem;
   font-weight: 700;
@@ -362,9 +362,8 @@ button {
 .ledger-panel {
   background: var(--white);
   border: 1px solid var(--line-strong);
-  border-radius: 0.85rem;
+  border-radius: 2px;
   padding: 1.35rem 1.35rem 1rem;
-  box-shadow: 0 18px 40px rgba(20, 32, 25, 0.08);
 }
 
 .ledger-panel__head {
@@ -508,8 +507,8 @@ button {
 
 .planner__board {
   background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: 0.85rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 2px;
   padding: 1.15rem;
 }
 
@@ -537,19 +536,16 @@ button {
   text-align: left;
   min-height: 4.2rem;
   padding: 0.65rem 0.7rem;
-  border: none;
-  border-radius: 0.45rem;
+  border: 1px solid transparent;
+  border-radius: 2px;
   background: color-mix(in srgb, var(--bar) 28%, white);
   cursor: pointer;
-  transition:
-    transform 0.2s var(--ease),
-    box-shadow 0.2s ease;
+  transition: border-color 0.2s ease, background 0.2s ease;
 }
 
 .planner__bar.is-active {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(20, 32, 25, 0.12);
-  outline: 2px solid var(--forest);
+  border-color: var(--forest);
+  outline: none;
 }
 
 .planner__bar-time {
@@ -570,7 +566,7 @@ button {
 
 .planner__track {
   height: 0.45rem;
-  border-radius: 0.25rem;
+  border-radius: 1px;
   background: rgba(27, 48, 34, 0.1);
   overflow: hidden;
 }
@@ -640,8 +636,18 @@ button {
 }
 
 .voices__head {
-  max-width: 34rem;
+  max-width: 40rem;
   margin-bottom: 2rem;
+}
+
+.voices__disclaimer {
+  margin: 0.85rem 0 0;
+  padding: 0.75rem 0.9rem;
+  border-left: 3px solid var(--moss);
+  background: rgba(47, 90, 64, 0.08);
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  max-width: 48ch;
 }
 
 .voices__grid {
@@ -657,18 +663,27 @@ button {
 }
 
 .voice {
-  padding: 0;
+  padding: 1.15rem 0 0;
   background: transparent;
-  border: none;
+  border-top: 1px solid var(--line-strong);
+}
+
+.voice__tag {
+  margin: 0 0 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--moss);
 }
 
 .voice img {
   width: 3.4rem;
   height: 3.4rem;
-  border-radius: 50%;
+  border-radius: 2px;
   object-fit: cover;
   margin-bottom: 1rem;
-  border: 2px solid var(--white);
+  border: 1px solid var(--line);
 }
 
 .voice blockquote {
@@ -693,61 +708,22 @@ button {
   color: var(--ink);
 }
 
-/* Impact */
-.impact {
-  padding: 4.5rem 0 5rem;
+/* Close */
+.close {
+  padding: 4rem 0 5rem;
+  background: var(--cream);
 }
 
-.impact__grid {
-  display: grid;
-  gap: 0;
-  border-radius: 0.85rem;
-  overflow: hidden;
-  background: var(--white);
-  border: 1px solid var(--line);
+.close__inner {
+  max-width: 34rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line-strong);
 }
 
-@media (min-width: 900px) {
-  .impact__grid {
-    grid-template-columns: 1.1fr 0.9fr;
-  }
-}
-
-.impact__photo {
-  margin: 0;
-  min-height: 16rem;
-}
-
-.impact__photo img {
-  width: 100%;
-  height: 100%;
-  min-height: 16rem;
-  object-fit: cover;
-}
-
-.impact__copy {
-  padding: 1.75rem 1.5rem;
-  display: grid;
-  align-content: center;
-}
-
-@media (min-width: 900px) {
-  .impact__copy {
-    padding: 2.25rem;
-  }
-}
-
-.impact__copy > p:nth-of-type(2) {
-  margin: 0 0 1rem;
+.close__inner p {
+  margin: 0 0 1.25rem;
   color: var(--ink-soft);
-}
-
-.impact__list {
-  margin: 0;
-  padding-left: 1.1rem;
-  display: grid;
-  gap: 0.4rem;
-  color: var(--ink-soft);
+  max-width: 40ch;
 }
 
 /* Pricing */

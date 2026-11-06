@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState, type CSSProperties } from 'react'
 import heroBudget from './assets/hero-morning-kitchen.jpg'
 import goalsDesk from './assets/goals-desk.jpg'
-import impactCity from './assets/impact-city-dusk.jpg'
 import voiceMaya from './assets/voice-sarah.jpg'
 import './App.css'
 
@@ -106,15 +105,15 @@ function BudgetDay() {
   const pct = Math.min(100, Math.round((saved / SAVE_GOAL) * 100))
 
   return (
-    <section className="planner" id="product">
+    <section className="planner" id="payday">
       <div className="shell planner__grid">
         <div className="planner__copy reveal">
-          <p className="eyebrow">Budgeting in real time</p>
+          <p className="eyebrow">Will rent bounce again?</p>
           <h2 className="display">
-            See bills, spending, and savings on the <em>same payday.</em>
+            Cover bills on payday—then spend what’s <em>actually</em> left.
           </h2>
           <p>
-            Tap through Jordan’s Tuesday. Fixed bills clear first. Daily spend
+            Tap through a sample Tuesday. Fixed bills clear first. Daily spend
             draws from what’s left. A set amount moves into savings
             automatically.
           </p>
@@ -202,9 +201,10 @@ export default function App() {
             Lumen
           </a>
           <nav className="nav" aria-label="Primary">
-            <a href="#product">Features</a>
-            <a href="#stories">Stories</a>
-            <a href="#pricing">Pricing</a>
+            <a href="#payday">How it works</a>
+            <a href="#pricing">Cost</a>
+            <a href="#features">What you get</a>
+            <a href="#scenarios">Scenarios</a>
           </nav>
           <div className="header-actions">
             <a className="header-login" href="#pricing">
@@ -218,6 +218,7 @@ export default function App() {
       </header>
 
       <main id="top">
+        {/* 1. What is this / who is it for */}
         <section className="hero">
           <div className="hero__stage">
             <div className="hero__media" aria-hidden="true">
@@ -236,16 +237,16 @@ export default function App() {
                 Budget, pay bills, and save—without losing the plot mid-month.
               </h1>
               <p className="hero__lede">
-                Personal finance for young professionals: track spending, cover
-                rent and utilities on payday, and grow savings goals before
-                lifestyle spend kicks in.
+                For young professionals on a salary: track spending, cover rent
+                and utilities when payday hits, and grow savings before lifestyle
+                spend kicks in.
               </p>
               <div className="hero__actions">
                 <a className="btn btn--cream" href="#pricing">
-                  Create free budget
+                  See pricing
                 </a>
-                <a className="btn btn--ghost-light" href="#product">
-                  See how a payday works
+                <a className="btn btn--ghost-light" href="#payday">
+                  Will my bills get covered?
                 </a>
               </div>
             </div>
@@ -294,135 +295,26 @@ export default function App() {
                 </div>
               </div>
               <p className="ledger-panel__note">
-                Custom ledger UI · illustrative numbers, not a live account
+                Sample ledger for this demo · not a live account
               </p>
             </div>
           </div>
         </section>
 
+        {/* 2. Customer question: will bills / rent get covered? */}
         <BudgetDay />
 
-        <section className="pillars" id="features">
-          <div className="shell">
-            <header className="pillars__head reveal">
-              <p className="eyebrow">What Lumen does</p>
-              <h2 className="display">
-                Four jobs every personal finance app should nail.
-              </h2>
-            </header>
-            <ol className="pillars__list">
-              <li className="reveal">
-                <h3>Budget categories that match your paycheck</h3>
-                <p>
-                  Split income into bills, groceries, transport, and fun money.
-                  Adjust once; Lumen recalculates what you can still spend.
-                </p>
-              </li>
-              <li className="reveal">
-                <h3>Bill coverage on payday—not the due date panic</h3>
-                <p>
-                  Hold rent, utilities, and subscriptions the morning direct
-                  deposit lands so mid-month surprises don’t bounce.
-                </p>
-              </li>
-              <li className="reveal">
-                <h3>Savings goals with automatic transfers</h3>
-                <p>
-                  Name the goal, set a dollar amount per payday, and keep daily
-                  spending from quietly draining it.
-                </p>
-              </li>
-              <li className="reveal">
-                <h3>Clear spending history you can act on</h3>
-                <p>
-                  See where the week went—coffee, rides, groceries—against the
-                  budget you set, in plain language.
-                </p>
-              </li>
-            </ol>
-          </div>
-        </section>
-
-        <section className="voices" id="stories">
-          <div className="shell">
-            <header className="voices__head reveal">
-              <p className="eyebrow">Member stories</p>
-              <h2 className="display">
-                What changed when the budget finally stuck.
-              </h2>
-            </header>
-            <div className="voices__grid">
-              <article className="voice reveal">
-                <img src={voiceMaya} alt="Maya Ong" width={72} height={72} />
-                <blockquote>
-                  “I used to overspend the weekend before rent cleared. Now rent
-                  and utilities are held on payday. In four months I put $810
-                  toward flying home—without cutting coffee entirely.”
-                </blockquote>
-                <footer>
-                  <strong>Maya Ong</strong>
-                  <span>
-                    Product designer · Kuala Lumpur · budgeting rent + trip fund
-                  </span>
-                </footer>
-              </article>
-              <article className="voice reveal">
-                <img src={goalsDesk} alt="" width={72} height={72} />
-                <blockquote>
-                  “Shared categories with my partner for groceries and internet,
-                  separate fun money. We stopped arguing about ‘who spent what’
-                  because the budget already said.”
-                </blockquote>
-                <footer>
-                  <strong>Jordan Lee</strong>
-                  <span>
-                    Packaging designer · Chicago · shared household budget
-                  </span>
-                </footer>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <section className="impact">
-          <div className="shell impact__grid reveal">
-            <figure className="impact__photo">
-              <img
-                src={impactCity}
-                alt="City evening light from a transit platform"
-                width={1200}
-                height={675}
-              />
-            </figure>
-            <div className="impact__copy">
-              <p className="eyebrow">Financial planning that fits a salary</p>
-              <h2 className="display">
-                From first paycheck to a plan you can keep.
-              </h2>
-              <p>
-                Lumen is for people learning to budget on a real salary: cover
-                fixed costs, watch variable spend, and fund goals without a
-                spreadsheet hobby.
-              </p>
-              <ul className="impact__list">
-                <li>Link accounts and set bill holds once</li>
-                <li>Track daily spend against category budgets</li>
-                <li>Automate savings every payday</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
+        {/* 3. Customer question: what does it cost? (moved earlier on purpose) */}
         <section className="pricing" id="pricing">
           <div className="shell pricing__wrap">
             <header className="pricing__head reveal">
-              <p className="eyebrow eyebrow--light">Pricing</p>
+              <p className="eyebrow eyebrow--light">What does it cost?</p>
               <h2 className="display display--light">
-                Start free. Upgrade when your budget needs more room.
+                Free to budget and cover bills. Pro when you need more goals.
               </h2>
               <p>
-                Free is enough to budget and pay bills. Pro unlocks unlimited
-                savings goals and a shared household plan.
+                Most people start on Free. Upgrade only if you want unlimited
+                savings goals or a shared household budget.
               </p>
             </header>
 
@@ -479,6 +371,106 @@ export default function App() {
             </div>
           </div>
         </section>
+
+        {/* 4. Customer question: what exactly do I get? */}
+        <section className="pillars" id="features">
+          <div className="shell">
+            <header className="pillars__head reveal">
+              <p className="eyebrow">What do I get?</p>
+              <h2 className="display">
+                Four jobs Lumen is built to do.
+              </h2>
+            </header>
+            <ol className="pillars__list">
+              <li className="reveal">
+                <h3>Budget categories that match your paycheck</h3>
+                <p>
+                  Split income into bills, groceries, transport, and fun money.
+                  Adjust once; Lumen recalculates what you can still spend.
+                </p>
+              </li>
+              <li className="reveal">
+                <h3>Bill coverage on payday—not the due-date panic</h3>
+                <p>
+                  Hold rent, utilities, and subscriptions the morning direct
+                  deposit lands so mid-month surprises don’t bounce.
+                </p>
+              </li>
+              <li className="reveal">
+                <h3>Savings goals with automatic transfers</h3>
+                <p>
+                  Name the goal, set a dollar amount per payday, and keep daily
+                  spending from quietly draining it.
+                </p>
+              </li>
+              <li className="reveal">
+                <h3>Clear spending history you can act on</h3>
+                <p>
+                  See where the week went—coffee, rides, groceries—against the
+                  budget you set, in plain language.
+                </p>
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        {/* 5. Illustrative scenarios — clearly labeled, not fake social proof */}
+        <section className="voices" id="scenarios">
+          <div className="shell">
+            <header className="voices__head reveal">
+              <p className="eyebrow">Example scenarios</p>
+              <h2 className="display">
+                How budgeting shows up in a normal month.
+              </h2>
+              <p className="voices__disclaimer">
+                Illustrative scenarios for this demo — not verified customer
+                quotes or real accounts. Replace with real member stories when
+                available.
+              </p>
+            </header>
+            <div className="voices__grid">
+              <article className="voice reveal">
+                <p className="voice__tag">Illustrative · Scenario A</p>
+                <img src={voiceMaya} alt="" width={72} height={72} />
+                <blockquote>
+                  “Rent used to clear after a loud weekend. With payday holds,
+                  rent and utilities are set aside first. Over four months, $810
+                  builds toward a flight home—without cutting coffee entirely.”
+                </blockquote>
+                <footer>
+                  <strong>Composite: first-job renter</strong>
+                  <span>Focus: rent timing + trip savings</span>
+                </footer>
+              </article>
+              <article className="voice reveal">
+                <p className="voice__tag">Illustrative · Scenario B</p>
+                <img src={goalsDesk} alt="" width={72} height={72} />
+                <blockquote>
+                  “Shared grocery and internet categories with a partner,
+                  separate fun money. Fewer ‘who spent what’ arguments because
+                  the budget already answered.”
+                </blockquote>
+                <footer>
+                  <strong>Composite: shared household</strong>
+                  <span>Focus: joint bills + separate lifestyle budgets</span>
+                </footer>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section className="close">
+          <div className="shell close__inner reveal">
+            <h2 className="display">Ready to put payday in order?</h2>
+            <p>
+              Start on Free: set bill holds, one savings goal, and category
+              budgets. Upgrade later only if you need more.
+            </p>
+            <a className="btn btn--forest" href="#pricing">
+              Back to pricing
+            </a>
+          </div>
+        </section>
       </main>
 
       <footer className="site-footer">
@@ -488,11 +480,15 @@ export default function App() {
             Lumen
           </a>
           <nav aria-label="Footer">
-            <a href="#product">Features</a>
-            <a href="#stories">Stories</a>
-            <a href="#pricing">Pricing</a>
+            <a href="#payday">How it works</a>
+            <a href="#pricing">Cost</a>
+            <a href="#features">What you get</a>
+            <a href="#scenarios">Scenarios</a>
           </nav>
-          <p>© {new Date().getFullYear()} Lumen. Budgeting for young pros.</p>
+          <p>
+            © {new Date().getFullYear()} Lumen · Demo landing page with
+            illustrative content
+          </p>
         </div>
       </footer>
     </div>
